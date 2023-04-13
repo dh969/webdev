@@ -18,23 +18,43 @@ function validation(){
     if(name.trim()===""||email.trim()===""||web.trim()===""||imglink.trim()===""||(male===false&&female==false)||(!java&&!html&&!css)){
         document.getElementById('error').innerHTML='Please Enter all the details.';
         document.getElementById('error').style.display='block';
+        setTimeout(function(){
+            document.getElementById('error').style.display='none'
+           },2000);
         return false;
     }
     else{
         document.getElementById('error').style.display='none';
         let regex=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-      
+        var expression =
+        /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+            var regex1 = new RegExp(expression);
         if(!email.match(regex)){
             document.getElementById('error').innerHTML='Please Enter valid email.';
         document.getElementById('error').style.display='block';
+        setTimeout(function(){
+            document.getElementById('error').style.display='none'
+           },2000);
         return false;
         }
         if(name.length<5){
             document.getElementById('error').innerHTML='Please Enter full name.';
             document.getElementById('error').style.display='block';
+            setTimeout(function(){
+                document.getElementById('error').style.display='none'
+               },2000);
             return false;
 
         }
+        if(!web.match(regex1)){
+            document.getElementById('error').innerHTML='Please Enter valid website url.';
+            document.getElementById('error').style.display='block';
+            setTimeout(function(){
+                document.getElementById('error').style.display='none'
+               },2000);
+            return false;
+        }
+    
   
 
         return true;
@@ -43,6 +63,14 @@ function validation(){
 
 }
 function del(){
+   if(todolist.length==0){
+    document.getElementById('error').innerHTML='List is already empty.';
+    document.getElementById('error').style.display='block';
+    setTimeout(function(){
+        document.getElementById('error').style.display='none'
+       },2000);
+   }
+  
    todolist.splice(todolist.length-1,1);
    rendertodo(); 
 }

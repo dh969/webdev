@@ -17,7 +17,7 @@ body{
    left:0;
    border:1px solid black;
    margin:auto;
-   overflow:-moz-hidden-unscrollable;
+   overflow: hidden;
   
 }
 .rightpara{
@@ -203,6 +203,7 @@ font-size:1.5vh;
     }
     .top{
         height:5%;
+        z-index: 1;
     }
     .bottom{
         height:2%;
@@ -210,13 +211,20 @@ font-size:1.5vh;
     .right{
         width:100%;
         bottom:2%;
-        top:50%;
+        top:60%;
         border-style:solid none none none;
-        padding-top:10%;
+        padding-top:5%;
+    }
+    .card{
+        right:23%;
+        top:5%;
     }
     .left{
-        top:5%;
-        bottom:50%;
+        top:2%;
+        margin-bottom:0;
+        margin-top:0;
+        font-size:small;
+        bottom:40%;
         width:100%;
         margin-bottom:0;
         overflow:auto;
